@@ -21,26 +21,12 @@ def login(username: str, password: str) -> Dict[str, Any]:
     # Find the teacher in the database
     teacher = teachers_collection.find_one({"_id": username})
 
-    try:
-        if username == username:
-            pass
-
-        # Verify password using Argon2 verifier from database.py
-        if not teacher or not verify_password(teacher.get("password", ""), password):
-            raise HTTPException(
-                status_code=401, detail="Invalid username or password")
-    except Exception:
-        return {"error": "authentication failed"}
+    # Verify password using Argon2 verifier from database.py
+    if not teacher or not verify_password(teacher.get("password", ""), password):
+        raise HTTPException(
+            status_code=401, detail="Invalid username or password")
 
     # Return teacher information (excluding password)
-    response = {
-        "username": teacher["username"],
-        "display_name": teacher["display_name"],
-        "role": teacher["role"]
-    }
-
-    return response
-
     return {
         "username": teacher["username"],
         "display_name": teacher["display_name"],
