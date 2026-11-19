@@ -89,7 +89,7 @@ def signup_for_activity(
             status_code=400, detail="Already signed up for this activity")
 
     # Validate the activity is not already at capacity
-    if len(activity["participants"]) >= activity["max_participants"]:
+    if len(activity["participants"]) >= int(activity["max_participants"]):
         raise HTTPException(
             status_code=400, detail="This activity is already full")
 

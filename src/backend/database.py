@@ -116,7 +116,7 @@ initial_activities = {
             "start_time": "15:15",
             "end_time": "17:00"
         },
-        "max_participants": "15",
+        "max_participants": 15,
         "participants": ["ava@mergington.edu", "mia@mergington.edu"]
     },
     "Art Club": {
