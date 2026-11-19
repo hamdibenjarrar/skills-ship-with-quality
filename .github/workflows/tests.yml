@@ -56,6 +56,7 @@ jobs:
           file: coverage/coverage-python.xml
           language: Python
           label: code-coverage/pytest
+          fail-on-error: false
 
   test-js:
     name: Run unit tests (javascript)
@@ -82,3 +83,4 @@ jobs:
           file: coverage/coverage-javascript.xml
           language: JavaScript
           label: code-coverage/jest
+          fail-on-error: false
